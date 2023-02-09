@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="filter-holder">
+    <div class="format-holder">
+      <div class="">Format</div>
+      <select (change)="sortFormat($event)" name="" id="">
+        <option value="ASC">ASC</option>
+        <option value="DESC">DSC</option>
+      </select>
+    </div>
+
+    <div class="category-holder">
+      <div class="">Category</div>
+      <select (change)="sortCategory($event)" name="" id="">
+        <option value="Price">Price</option>
+        <option value="Rating">Rating</option>
+      </select>
+    </div>
+
+  </div>
+  <div class="list-item" *ngFor="let data of data_paginator.data">
+    <div class="item-content" (click)="toDetail(data.slug)">
+      <div class="picture-holder">
+        <img [src]="data.icons" alt="">
+      </div>
+      <div class="text-holder">
+        <div>
+          <h3 class="title">{{data.title}}</h3>
+          <p class="sub-title">{{data.description}}</p>
+          <p class="author">{{data.instructors}}</p>
+          <div class="rating-reviews">
+            <span class="rating">{{data.rating}}</span>
+            <span *ngIf="data.rating !== 0" class="score " [class]="mappingRatingClass(data.rating)"></span>
+            <span *ngIf="data.rating === 0" class="no-review">No Review Yet</span>
+            <span class="reviews">({{data.review}})</span>
+          </div>
+          <div class="lecture-holder">
+            <span class="hours">{{data.total_hours}} total hours</span>
+            <span class="lecture">{{data.total_lecture}} lectures</span>
+            <span class="level">{{data.levels}}</span>
+          </div>
+        </div>
+        <div class="price">{{data.price_string}}</div>
+      </div>
+    </div>
+    <hr>
+  </div>
+
+  <div class="paginator-holder">
+    <button [disabled]="data_paginator.page === 1" (click)="selectPage(1)">&laquo;</button>
+    <div *ngFor="let item of pages">
+      <button (click)="selectPage(item.no)">{{item.no}}</button>
+    </div>
+    <button [disabled]="data_paginator.page === data_paginator.total_pages" (click)="selectPage(data_paginator.total_pages)">&raquo;</button>
+  </div>
+
+</div>

@@ -1,0 +1,173 @@
+.container {
+  padding: 5rem 10rem;
+}
+
+.list-item {
+  cursor: pointer;
+  .item-content {
+    display: grid;
+    grid-template-columns: 25% 75%;
+  
+    .text-holder {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 0 0 1rem;
+      
+      h3 {
+        margin-top: 0;
+        margin-bottom: .5rem;
+      }
+      
+      .sub-title {
+        margin: .25rem 0;
+        font-size: 16px;
+        color: #1c1d1f;
+      }
+
+      .author {
+        margin: .25rem 0;
+        font-size: 14px;
+        color: #6a6f73;
+      }
+
+      .rating-reviews {
+        margin: .25rem 0;
+        .rating {
+          font-weight: 800;
+          color: #b4690e;
+        }
+
+        .no-review {
+          font-size: 14px;
+          margin: 0 .25rem;
+        }
+        
+        .reviews {
+          font-size: 12px;
+          color: #6a6f73;
+        }
+      }
+
+      .lecture-holder {
+        margin: .25rem 0;
+        font-size: 12px;
+        color: #6a6f73;
+        .lecture {
+
+          &::before {
+            content: '\25CF';
+            margin: 0 0.4rem;
+            font-size: 6px;
+          }
+        }
+
+        .level {
+          &::before {
+            content: '\25CF';
+            margin: 0 0.4rem;
+            font-size: 6px;
+          }
+        }
+      }
+  
+      .price {
+        font-weight: 800;
+      }
+    }
+  }
+}
+
+.filter-holder {
+  display: flex;
+
+  .format-holder {
+
+    select {
+      min-width: 5rem;
+      padding: 0.25rem 0;
+      margin: 0.25rem 0;
+    }
+  }
+
+  .category-holder {
+    margin-left: 1rem;
+    
+    select {
+      min-width: 5rem;
+      padding: 0.25rem 0;
+      margin: 0.25rem 0;
+    }
+
+  }
+}
+
+.paginator-holder {
+  display: flex;
+  justify-content: flex-end;
+
+  button {
+    cursor: pointer;
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: solid 1px #6a6f73;
+    border-radius: 4px;
+  }
+}
+
+.score {
+  display: inline-block;
+  font-family: Wingdings;
+  font-size: 16px;
+  margin: 0 0.25rem;
+  color: #ccc;
+  position: relative;
+
+  &::before, &::after {
+    content: "\2605\2605\2605\2605\2605";
+    display: block;
+  }
+
+  &::after {
+    color: #e59819;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+  }
+
+  &.s0::after {
+    width: 0%;
+  }
+  &.s1::after {
+    width: 10%;
+  }
+  &.s2::after {
+    width: 20%;
+  }
+  &.s3::after {
+    width: 30%;
+  }
+  &.s4::after {
+    width: 40%;
+  }
+  &.s5::after {
+    width: 50%;
+  }
+  &.s6::after {
+    width: 60%;
+  }
+  &.s7::after {
+    width: 70%;
+  }
+  &.s8::after {
+    width: 80%;
+  }
+  &.s9::after {
+    width: 90%;
+  }
+  &.s10::after {
+    width: 100%;
+  }
+}
+
