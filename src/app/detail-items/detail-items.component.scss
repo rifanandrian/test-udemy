@@ -6,6 +6,19 @@
   .text-section {
     padding-right: 32rem;
 
+    .breadcrumb {
+      margin-bottom: 1rem;
+
+      span {
+        margin-right: .5rem;
+
+        &:nth-child(1) {
+          color: #a435f0;
+          cursor: pointer;
+        }
+      }
+    }
+
     h1 {
       margin-top: unset;
     }

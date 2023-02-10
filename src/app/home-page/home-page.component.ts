@@ -16,7 +16,7 @@ export interface page {
 })
 export class HomePageComponent implements OnInit {
 
-  public data: Array<Course> = [];
+  public data: Course[] = [];
 
   public selectedFormat = 'ASC';
   public selectedCategory = 'Price';
@@ -81,7 +81,7 @@ export class HomePageComponent implements OnInit {
     this.dataPaginator = new Pagination(this.paginator(tempData, this.currentPage));
   }
 
-  paginator(items: Array<Course>, desire_page: number) {
+  paginator(items: Course[], desire_page: number) {
 
     const page = desire_page || 1;
     const per_page = 3;

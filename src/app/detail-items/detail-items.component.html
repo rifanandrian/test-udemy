@@ -1,7 +1,10 @@
-<div class="container">
+<div *ngIf="!!data" class="container">
   <div class="top-section">
     <div class="text-section">
-      <div class="breadcrumb"></div>
+      <div class="breadcrumb">
+        <span (click)="backToList()">list</span>
+        <span>>&nbsp;&nbsp;{{data.title}}</span>
+      </div>
       <h1>{{data.title}}</h1>
       <p>{{data.description}}</p>
       <div class="rating-reviews">

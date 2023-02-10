@@ -18,14 +18,14 @@
 
   </div>
 
-  <app-list-item [dataPagination]="dataPaginator"></app-list-item>
+  <app-list-item *ngIf="!!dataPaginator" [dataPagination]="dataPaginator"></app-list-item>
 
   <div class="paginator-holder">
-    <button [disabled]="dataPaginator.page === 1" (click)="selectPage(1)">&laquo;</button>
+    <button [disabled]="!!dataPaginator && dataPaginator.page === 1" (click)="selectPage(1)">&laquo;</button>
     <div *ngFor="let item of pages">
       <button (click)="selectPage(item.no)">{{item.no}}</button>
     </div>
-    <button [disabled]="dataPaginator.page === dataPaginator.total_pages" (click)="selectPage(dataPaginator.total_pages)">&raquo;</button>
+    <button [disabled]="!!dataPaginator && dataPaginator.page === dataPaginator.total_pages" (click)="selectPage(dataPaginator.total_pages)">&raquo;</button>
   </div>
 
 </div>

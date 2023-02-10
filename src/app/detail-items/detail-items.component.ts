@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Course } from '../../models/Course';
 import { CoursesService } from '../services/courses.service';
 import { GeneralService } from '../services/general.service';
@@ -18,6 +18,7 @@ export class DetailItemsComponent implements OnInit {
   constructor(
     private titleService: Title,
     private route: ActivatedRoute,
+    private router: Router,
     private courseService: CoursesService,
     private generalService: GeneralService
   ) { 
@@ -28,9 +29,7 @@ export class DetailItemsComponent implements OnInit {
     )
   }
 
-  ngOnInit() {
-    this.titleService.setTitle(`${this.data.title} | Udemy Clone Site`);
-  }
+  ngOnInit() {}
 
   getData(slug: string) {
     this.courseService.getCourseById(slug).subscribe(
@@ -42,6 +41,7 @@ export class DetailItemsComponent implements OnInit {
           this.labelClass = tempData[i]['label'][0] === 'NEW' ? 'bg-green' : tempData[i]['label'][0] === 'BEST SELLER' ? 'bg-yellow' : 'bg-red';
         }
         this.data = tempData[0];
+        this.titleService.setTitle(`${!!this.data ? this.data.title : ''} | Udemy Clone Site`);
       }
     )
   }
@@ -52,6 +52,10 @@ export class DetailItemsComponent implements OnInit {
 
   renderRating(rating: number) {
     return this.generalService.mappingRatingClass(rating);
+  }
+
+  backToList() {
+    this.router.navigateByUrl('');
   }
 
 }
