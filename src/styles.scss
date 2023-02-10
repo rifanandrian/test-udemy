@@ -1,1 +1,92 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+  margin: unset;
+}
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.label-holder {
+  margin-top: .5rem;
+  .label {
+    font-size: 12px;
+    width: fit-content;
+    padding: .5rem;
+
+    &.bg-yellow {
+      background-color: #eceb98;
+      color: #3d3c0a;
+    }
+
+    &.bg-green {
+      background-color: #37f54d;
+      color: #fff;
+    }
+
+    &.bg-red {
+      background-color: #f64f55;
+      color: #fff;
+    }
+  }
+}
+
+.score {
+  display: inline-block;
+  font-family: Wingdings;
+  font-size: 16px;
+  margin: 0 0.25rem;
+  color: #ccc;
+  position: relative;
+
+  &::before, &::after {
+    content: "\2605\2605\2605\2605\2605";
+    display: block;
+  }
+
+  &::after {
+    color: #e59819;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+  }
+
+  &.s0::after {
+    width: 0%;
+  }
+  &.s1::after {
+    width: 10%;
+  }
+  &.s2::after {
+    width: 20%;
+  }
+  &.s3::after {
+    width: 30%;
+  }
+  &.s4::after {
+    width: 40%;
+  }
+  &.s5::after {
+    width: 50%;
+  }
+  &.s6::after {
+    width: 60%;
+  }
+  &.s7::after {
+    width: 70%;
+  }
+  &.s8::after {
+    width: 80%;
+  }
+  &.s9::after {
+    width: 90%;
+  }
+  &.s10::after {
+    width: 100%;
+  }
+}

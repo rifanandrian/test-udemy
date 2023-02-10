@@ -6,6 +6,9 @@ import { ListItemComponent } from './list-item/list-item.component';
   imports: [
     CommonModule
   ],
+  exports: [
+    ListItemComponent
+  ],
   declarations: [ListItemComponent]
 })
 export class SharedModule { }

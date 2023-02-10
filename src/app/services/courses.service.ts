@@ -22,7 +22,9 @@ export class CoursesService {
       "total_lecture": 145,
       "levels": "All Levels",
       "wishlist": false,
-      "icons": "https://img-c.udemycdn.com/course/240x135/857010_8239_2.jpg"
+      "icons": "https://img-c.udemycdn.com/course/240x135/857010_8239_2.jpg",
+      "createdDate": "2022-10-15",
+      "label": []
     },
     {
       "slug": "learn-kubernetes",
@@ -37,7 +39,9 @@ export class CoursesService {
       "total_lecture": 61,
       "levels": "Beginner",
       "wishlist": false,
-      "icons": "https://img-c.udemycdn.com/course/240x135/1602900_f550_10.jpg"
+      "icons": "https://img-c.udemycdn.com/course/240x135/1602900_f550_10.jpg",
+      "createdDate": "2022-11-15",
+      "label": []
     },
     {
       "slug": "the-complete-internet-security-privacy-course-volume-1",
@@ -52,7 +56,9 @@ export class CoursesService {
       "total_lecture": 124,
       "levels": "All Levels",
       "wishlist": false,
-      "icons": "https://img-c.udemycdn.com/course/240x135/614772_233b_9.jpg"
+      "icons": "https://img-c.udemycdn.com/course/240x135/614772_233b_9.jpg",
+      "createdDate": "2022-12-15",
+      "label": []
     },
     {
       "slug": "the-absolute-beginners-guide-to-information-cyber-security",
@@ -67,7 +73,9 @@ export class CoursesService {
       "total_lecture": 57,
       "levels": "Beginner",
       "wishlist": false,
-      "icons": "https://img-c.udemycdn.com/course/240x135/1236568_5ada_11.jpg"
+      "icons": "https://img-c.udemycdn.com/course/240x135/1236568_5ada_11.jpg",
+      "createdDate": "2023-02-15",
+      "label": []
     },
     {
       "slug": "penetration-testing",
@@ -82,7 +90,9 @@ export class CoursesService {
       "total_lecture": 113,
       "levels": "All Levels",
       "wishlist": false,
-      "icons": "https://img-c.udemycdn.com/course/240x135/437490_c76a_4.jpg"
+      "icons": "https://img-c.udemycdn.com/course/240x135/437490_c76a_4.jpg",
+      "createdDate": "2023-02-11",
+      "label": []
     }
   ]
 
@@ -92,6 +102,10 @@ export class CoursesService {
   
   getCourses(): Observable<any> {
     return of(this.data)
+  }
+
+  getCourseById(slug: string): Observable<any> {
+    return of(this.data.filter(x => x.slug === slug))
   }
 
 }

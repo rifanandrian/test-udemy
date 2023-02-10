@@ -10,20 +10,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  declarations: [		
-    AppComponent,
-      HomePageComponent,
-      DetailItemsComponent
-   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    SharedModule
-  ],
-  providers: [
-    CoursesService
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HomePageComponent,
+        DetailItemsComponent
+    ],
+    providers: [
+        CoursesService
+    ],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        SharedModule,
+    ]
 })
 export class AppModule { }

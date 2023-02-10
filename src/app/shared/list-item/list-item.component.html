@@ -1,3 +1,31 @@
-<p>
-  list-item works!
-</p>
+<div class="list-item" *ngFor="let data of dataPagination.data">
+  <div class="item-content" (click)="toDetail(data.slug)">
+    <div class="picture-holder">
+      <img [src]="data.icons" alt="">
+    </div>
+    <div class="text-holder">
+      <div>
+        <h3 class="title">{{data.title}}</h3>
+        <p class="sub-title">{{data.description}}</p>
+        <p class="author">{{data.instructors}}</p>
+        <div class="rating-reviews">
+          <span class="rating">{{data.rating}}</span>
+          <span *ngIf="data.rating !== 0" class="score " [class]="renderRating(data.rating)"></span>
+          <span *ngIf="data.rating === 0" class="no-review">No Review Yet</span>
+          <span class="reviews">({{data.review}})</span>
+        </div>
+        <div class="lecture-holder">
+          <span class="hours">{{data.total_hours}} total hours</span>
+          <span class="lecture">{{data.total_lecture}} lectures</span>
+          <span class="level">{{data.levels}}</span>
+        </div>
+
+        <div class="label-holder">
+          <div class="label " *ngFor="let item of data.label" [class]="item === 'NEW' ? 'bg-green' : item === 'BEST SELLER' ? 'bg-yellow' : 'bg-red'">{{item}}</div>
+        </div>
+      </div>
+      <div class="price">{{data.price_string}}</div>
+    </div>
+  </div>
+  <hr>
+</div>

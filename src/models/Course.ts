@@ -12,7 +12,9 @@ export class Course {
   readonly total_lecture: number;
   readonly levels: string;
   readonly icons: string;
+  readonly createdDate: string;
   public wishlist: boolean;
+  public label = [];
 
   constructor(courseData: any) {
     this.slug = courseData['slug'];
@@ -28,5 +30,7 @@ export class Course {
     this.levels = courseData['levels'];
     this.wishlist = courseData['wishlist'];
     this.icons = courseData['icons'];
+    this.createdDate = courseData['createdDate'];
+    this.label = courseData['label'];
   }
 }

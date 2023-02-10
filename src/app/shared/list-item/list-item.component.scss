@@ -1,0 +1,74 @@
+.list-item {
+  cursor: pointer;
+  .item-content {
+    display: grid;
+    grid-template-columns: 25% 75%;
+  
+    .text-holder {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 0 0 1rem;
+      
+      h3 {
+        margin-top: 0;
+        margin-bottom: .5rem;
+      }
+      
+      .sub-title {
+        margin: .25rem 0;
+        font-size: 16px;
+        color: #1c1d1f;
+      }
+
+      .author {
+        margin: .25rem 0;
+        font-size: 14px;
+        color: #6a6f73;
+      }
+
+      .rating-reviews {
+        margin: .25rem 0;
+        .rating {
+          font-weight: 800;
+          color: #b4690e;
+        }
+
+        .no-review {
+          font-size: 14px;
+          margin: 0 .25rem;
+        }
+        
+        .reviews {
+          font-size: 12px;
+          color: #6a6f73;
+        }
+      }
+
+      .lecture-holder {
+        margin: .25rem 0;
+        font-size: 12px;
+        color: #6a6f73;
+        .lecture {
+
+          &::before {
+            content: '\25CF';
+            margin: 0 0.4rem;
+            font-size: 6px;
+          }
+        }
+
+        .level {
+          &::before {
+            content: '\25CF';
+            margin: 0 0.4rem;
+            font-size: 6px;
+          }
+        }
+      }
+  
+      .price {
+        font-weight: 800;
+      }
+    }
+  }
+}
