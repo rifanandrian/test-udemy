@@ -17,9 +17,11 @@ export interface page {
 export class HomePageComponent implements OnInit {
 
   public data: Course[] = [];
+  public tempData: Course[] = [];
 
   public selectedFormat = 'ASC';
   public selectedCategory = 'Price';
+  public selectedRatingValue = '5';
 
   public dataPaginator: Pagination;
 
@@ -54,7 +56,7 @@ export class HomePageComponent implements OnInit {
   }
 
   selectPage(page: number) {
-    this.dataPaginator = new Pagination(this.paginator(this.data , page));
+    this.dataPaginator = new Pagination(this.paginator(this.tempData.length > 0 ? this.tempData : this.data , page));
   }
 
   sortFormat(e: any) {
@@ -66,19 +68,40 @@ export class HomePageComponent implements OnInit {
     this.selectedCategory = e.target.value;
     this.onSort();
   }
+
+  sortByRating(e: any) {
+    this.selectedRatingValue = e.target.value;
+    this.onSort();
+  }
   
   onSort() {
-    const tempData = this.data;
+    let tempData = this.data;
     if (this.selectedCategory === 'Price') {
       tempData.sort((a, b) => { 
         return this.selectedFormat === 'ASC' ? (a.price > b.price) ? 1 : ((b.price > a.price) ? -1 : 0) : (b.price > a.price) ? 1 : ((a.price > b.price) ? -1 : 0); 
       });
-    } else if (this.selectedCategory === 'Rating') {
+    } 
+    else if (this.selectedCategory === 'Rating') {
+      // tempData.sort((a, b) => { 
+      //   return this.selectedFormat === 'ASC' ? (a.rating > b.rating) ? 1 : ((b.rating > a.rating) ? -1 : 0) : (b.rating > a.rating) ? 1 : ((a.rating > b.rating) ? -1 : 0);
+      // });
+      // let test = [];
+      // test = tempData.filter(x => {
+      //   console.log(x.rating >= parseInt(this.selectedRatingValue));
+      //   x.rating >= parseInt(this.selectedRatingValue);
+      // } );
+      tempData = [];
+      for (let i = 0; i < this.data.length; i++) {
+        if (this.data[i].rating >= parseInt(this.selectedRatingValue)) {
+          tempData.push(this.data[i]);
+        }
+      }
       tempData.sort((a, b) => { 
         return this.selectedFormat === 'ASC' ? (a.rating > b.rating) ? 1 : ((b.rating > a.rating) ? -1 : 0) : (b.rating > a.rating) ? 1 : ((a.rating > b.rating) ? -1 : 0);
       });
     }
-    this.dataPaginator = new Pagination(this.paginator(tempData, this.currentPage));
+    this.tempData = tempData;
+    this.dataPaginator = new Pagination(this.paginator(this.tempData, this.currentPage));
   }
 
   paginator(items: Course[], desire_page: number) {
@@ -97,6 +120,7 @@ export class HomePageComponent implements OnInit {
         no: i + 1,
       })
     }
+    // this.data = items;
 
     return {
       page: page,

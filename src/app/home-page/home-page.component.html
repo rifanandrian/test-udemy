@@ -16,6 +16,17 @@
       </select>
     </div>
 
+    <div *ngIf="selectedCategory === 'Rating'" class="category-holder">
+      <div class="">Rating</div>
+      <select (change)="sortByRating($event)" name="" id="">
+        <option value="5">5</option>
+        <option value="4">4</option>
+        <option value="3">3</option>
+        <option value="2">2</option>
+        <option value="1">1</option>
+      </select>
+    </div>
+
   </div>
 
   <app-list-item *ngIf="!!dataPaginator" [dataPagination]="dataPaginator"></app-list-item>
