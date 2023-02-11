@@ -82,14 +82,6 @@ export class HomePageComponent implements OnInit {
       });
     } 
     else if (this.selectedCategory === 'Rating') {
-      // tempData.sort((a, b) => { 
-      //   return this.selectedFormat === 'ASC' ? (a.rating > b.rating) ? 1 : ((b.rating > a.rating) ? -1 : 0) : (b.rating > a.rating) ? 1 : ((a.rating > b.rating) ? -1 : 0);
-      // });
-      // let test = [];
-      // test = tempData.filter(x => {
-      //   console.log(x.rating >= parseInt(this.selectedRatingValue));
-      //   x.rating >= parseInt(this.selectedRatingValue);
-      // } );
       tempData = [];
       for (let i = 0; i < this.data.length; i++) {
         if (this.data[i].rating >= parseInt(this.selectedRatingValue)) {
@@ -120,7 +112,6 @@ export class HomePageComponent implements OnInit {
         no: i + 1,
       })
     }
-    // this.data = items;
 
     return {
       page: page,
