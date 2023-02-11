@@ -20,9 +20,9 @@
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Developing</a>
+      <a href="#Developing">Developing</a>
       <ul>
-        <li><a href="#setting up dev">Setting up Dev</a></li>
+        <li><a href="#setting-up-dev">Setting up Dev</a></li>
         <li><a href="#building">Building</a></li>
       </ul>
     </li>
